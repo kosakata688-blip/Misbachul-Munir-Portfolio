@@ -26,6 +26,15 @@
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <link rel="apple-touch-icon" href="https://kosakata688-blip.github.io/Misbachul-Munir-Portfolio/foto-profil.webp" />
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -158,6 +167,37 @@
             color: var(--text);
             font-size: 1.5rem;
             cursor: pointer;
+        }
+
+        .lang-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid var(--card-border);
+            color: var(--text-muted);
+            padding: 0.35rem 0.75rem;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: inherit;
+            letter-spacing: 0.5px;
+        }
+
+        .lang-toggle:hover {
+            border-color: var(--primary);
+            color: var(--text);
+            background: rgba(37, 99, 235, 0.1);
+        }
+
+        .lang-toggle .active-lang {
+            color: var(--primary-light);
+        }
+
+        .lang-toggle .sep {
+            opacity: 0.3;
         }
 
         /* ==================== HERO SECTION ==================== */
@@ -793,6 +833,309 @@
             font-size: 0.85rem;
         }
 
+        /* ==================== PROJECTS / PORTFOLIO ==================== */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .project-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .project-thumb {
+            height: 200px;
+            background: var(--gradient-2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--primary-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-thumb::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, transparent 60%, rgba(15, 23, 42, 0.8));
+        }
+
+        .project-thumb i {
+            z-index: 1;
+        }
+
+        .project-body {
+            padding: 1.5rem;
+        }
+
+        .project-body .project-tag {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent);
+            background: rgba(6, 182, 212, 0.1);
+            padding: 0.2rem 0.7rem;
+            border-radius: 100px;
+            margin-bottom: 0.75rem;
+        }
+
+        .project-body h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-body p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .project-tech span {
+            font-size: 0.75rem;
+            padding: 0.25rem 0.65rem;
+            border-radius: 100px;
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--text-muted);
+            border: 1px solid var(--card-border);
+        }
+
+        /* ==================== CERTIFICATIONS ==================== */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .cert-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius);
+            padding: 1.75rem;
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .cert-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow);
+        }
+
+        .cert-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.15), rgba(37, 99, 235, 0.15));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin: 0 auto 1rem;
+        }
+
+        .cert-card h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.35rem;
+        }
+
+        .cert-card .cert-issuer {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .cert-card .cert-date {
+            font-size: 0.8rem;
+            color: var(--primary-light);
+            font-weight: 500;
+        }
+
+        /* ==================== TESTIMONIALS ==================== */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .testimonial-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius);
+            padding: 2rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '“';
+            position: absolute;
+            top: 0.5rem;
+            right: 1.5rem;
+            font-size: 4rem;
+            line-height: 1;
+            color: var(--primary);
+            opacity: 0.15;
+            font-family: Georgia, serif;
+        }
+
+        .testimonial-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow);
+        }
+
+        .testimonial-stars {
+            color: #f59e0b;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .testimonial-card blockquote {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.8;
+            font-style: italic;
+            margin-bottom: 1.25rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .testimonial-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--gradient-1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #fff;
+            flex-shrink: 0;
+        }
+
+        .testimonial-author-info strong {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .testimonial-author-info span {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* ==================== CV DOWNLOAD ==================== */
+        .cv-section {
+            text-align: center;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(6, 182, 212, 0.08));
+            border-radius: var(--radius);
+            padding: 3rem 2rem;
+            border: 1px solid rgba(37, 99, 235, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cv-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 50% 50%, rgba(37, 99, 235, 0.05), transparent 60%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .cv-section h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            position: relative;
+        }
+
+        .cv-section p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+        }
+
+        .cv-section .btn {
+            position: relative;
+        }
+
+        /* ==================== BACK TO TOP ==================== */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 999;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--gradient-1);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(20px);
+            pointer-events: none;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(37, 99, 235, 0.6);
+        }
+
         /* ==================== SCROLL ANIMATIONS ==================== */
         .reveal {
             opacity: 0;
@@ -852,6 +1195,11 @@
 
             .nav-toggle {
                 display: block;
+            }
+
+            .lang-toggle {
+                font-size: 0.65rem;
+                padding: 0.3rem 0.5rem;
             }
 
             .hero {
@@ -926,13 +1274,21 @@
             <i class="fas fa-bars"></i>
         </button>
         <ul class="nav-links" id="navLinks">
-            <li><a href="#home">Beranda</a></li>
-            <li><a href="#about">Tentang</a></li>
-            <li><a href="#skills">Keahlian</a></li>
-            <li><a href="#experience">Pengalaman</a></li>
-            <li><a href="#education">Pendidikan</a></li>
-            <li><a href="#contact">Kontak</a></li>
+            <li><a href="#home" data-i18n="nav_home">Beranda</a></li>
+            <li><a href="#about" data-i18n="nav_about">Tentang</a></li>
+            <li><a href="#skills" data-i18n="nav_skills">Keahlian</a></li>
+            <li><a href="#experience" data-i18n="nav_experience">Pengalaman</a></li>
+            <li><a href="#education" data-i18n="nav_education">Pendidikan</a></li>
+            <li><a href="#projects" data-i18n="nav_projects">Proyek</a></li>
+            <li><a href="#certifications" data-i18n="nav_certifications">Sertifikasi</a></li>
+            <li><a href="#testimonials" data-i18n="nav_testimonials">Testimoni</a></li>
+            <li><a href="#contact" data-i18n="nav_contact">Kontak</a></li>
         </ul>
+        <button class="lang-toggle" id="langToggle" aria-label="Switch language">
+            <span class="active-lang" id="langIndicator">ID</span>
+            <span class="sep">|</span>
+            <span>EN</span>
+        </button>
     </nav>
 
     <!-- ====== HERO ====== -->
@@ -942,23 +1298,26 @@
                 <img src="foto-profil.webp" alt="Misbachul Munir" />
             </div>
             <div class="hero-badge">
-                <i class="fas fa-check-circle"></i> Tersedia untuk bekerja
+                <i class="fas fa-check-circle"></i> <span data-i18n="hero_badge">Tersedia untuk bekerja</span>
             </div>
             <h1 class="hero-title">
-                Halo, saya <span class="highlight">Misbachul Munir</span>
+                <span data-i18n="hero_greeting">Halo, saya</span> <span class="highlight">Misbachul Munir</span>
             </h1>
-            <p class="hero-subtitle">Quality Assurance Professional</p>
-            <p class="hero-desc">
+            <p class="hero-subtitle" data-i18n="hero_subtitle">Quality Assurance Professional</p>
+            <p class="hero-desc" data-i18n="hero_desc">
                 Berpengalaman dalam quality inspection, defect analysis, dan quality control
                 di industri manufaktur. Berkomitmen untuk menjaga standar kualitas tertinggi
                 melalui ketelitian, dokumentasi, dan koordinasi lintas tim.
             </p>
             <div class="hero-actions">
                 <a href="#contact" class="btn btn-primary">
-                    <i class="fas fa-paper-plane"></i> Hubungi Saya
+                    <i class="fas fa-paper-plane"></i> <span data-i18n="hero_cta_contact">Hubungi Saya</span>
                 </a>
                 <a href="#experience" class="btn btn-outline">
-                    <i class="fas fa-briefcase"></i> Lihat Pengalaman
+                    <i class="fas fa-briefcase"></i> <span data-i18n="hero_cta_experience">Lihat Pengalaman</span>
+                </a>
+                <a href="#" class="btn btn-outline" id="downloadCV" onclick="downloadCV(event)">
+                    <i class="fas fa-download"></i> <span data-i18n="hero_cta_cv">Download CV</span>
                 </a>
             </div>
             <div class="hero-contact">
@@ -979,35 +1338,35 @@
     <section id="about">
         <div class="container">
             <div class="section-header reveal">
-                <span class="section-label">Tentang Saya</span>
-                <h2 class="section-title">Professional Overview</h2>
-                <p class="section-desc">Quality Assurance professional dengan pengalaman di berbagai sektor manufaktur.</p>
+                <span class="section-label" data-i18n="about_label">Tentang Saya</span>
+                <h2 class="section-title" data-i18n="about_title">Professional Overview</h2>
+                <p class="section-desc" data-i18n="about_desc">Quality Assurance professional dengan pengalaman di berbagai sektor manufaktur.</p>
             </div>
             <div class="about-grid">
                 <div class="about-stats reveal">
                     <div class="stat-card">
                         <div class="stat-number">5+</div>
-                        <div class="stat-label">Tahun Pengalaman</div>
+                        <div class="stat-label" data-i18n="stat_years">Tahun Pengalaman</div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-number">3</div>
-                        <div class="stat-label">Perusahaan</div>
+                        <div class="stat-label" data-i18n="stat_companies">Perusahaan</div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-number">100%</div>
-                        <div class="stat-label">Komitmen Kualitas</div>
+                        <div class="stat-label" data-i18n="stat_quality">Komitmen Kualitas</div>
                     </div>
                 </div>
                 <div class="about-text reveal">
-                    <h3>Dedikasi pada <span style="color:var(--primary-light)">Kualitas</span></h3>
-                    <p>
+                    <h3><span data-i18n="about_heading">Dedikasi pada</span> <span style="color:var(--primary-light)" data-i18n="about_heading_highlight">Kualitas</span></h3>
+                    <p data-i18n="about_p1">
                         Saya adalah seorang profesional Quality Assurance yang memiliki pengalaman
                         luas dalam inspeksi kualitas produk di industri manufaktur. Berawal dari
                         posisi Final Inspection hingga QA Inspector, saya telah mengasah kemampuan
                         dalam mengidentifikasi cacat, menganalisis penyebab, dan mendokumentasikan
                         temuan secara detail.
                     </p>
-                    <p>
+                    <p data-i18n="about_p2">
                         Dengan latar belakang Teknik Komputer dan Jaringan serta sedang menempuh
                         pendidikan S1 Sistem Informasi, saya menggabungkan ketelitian teknis dengan
                         pemahaman sistem untuk memastikan setiap produk memenuhi standar yang
@@ -1022,9 +1381,9 @@
     <section id="skills">
         <div class="container">
             <div class="section-header reveal">
-                <span class="section-label">Keahlian</span>
-                <h2 class="section-title">Core Competencies</h2>
-                <p class="section-desc">Keahlian utama yang saya miliki dalam bidang quality assurance dan manufacturing.</p>
+                <span class="section-label" data-i18n="skills_label">Keahlian</span>
+                <h2 class="section-title" data-i18n="skills_title">Core Competencies</h2>
+                <p class="section-desc" data-i18n="skills_desc">Keahlian utama yang saya miliki dalam bidang quality assurance dan manufacturing.</p>
             </div>
             <div class="skills-grid">
                 <div class="skill-category reveal">
@@ -1080,9 +1439,9 @@
     <section id="experience">
         <div class="container">
             <div class="section-header reveal">
-                <span class="section-label">Pengalaman</span>
-                <h2 class="section-title">Work Experience</h2>
-                <p class="section-desc">Perjalanan karir saya di industri manufaktur.</p>
+                <span class="section-label" data-i18n="exp_label">Pengalaman</span>
+                <h2 class="section-title" data-i18n="exp_title">Work Experience</h2>
+                <p class="section-desc" data-i18n="exp_desc">Perjalanan karir saya di industri manufaktur.</p>
             </div>
             <div class="timeline">
                 <div class="timeline-item reveal">
@@ -1138,9 +1497,9 @@
     <section id="education">
         <div class="container">
             <div class="section-header reveal">
-                <span class="section-label">Pendidikan</span>
-                <h2 class="section-title">Educational Background</h2>
-                <p class="section-desc">Riwayat pendidikan formal yang mendukung kompetensi saya.</p>
+                <span class="section-label" data-i18n="edu_label">Pendidikan</span>
+                <h2 class="section-title" data-i18n="edu_title">Educational Background</h2>
+                <p class="section-desc" data-i18n="edu_desc">Riwayat pendidikan formal yang mendukung kompetensi saya.</p>
             </div>
             <div class="edu-grid">
                 <div class="edu-card reveal">
@@ -1159,18 +1518,179 @@
         </div>
     </section>
 
+    <!-- ====== PORTFOLIO / PROJECTS ====== -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label" data-i18n="projects_label">Portofolio</span>
+                <h2 class="section-title" data-i18n="projects_title">Proyek & Pencapaian</h2>
+                <p class="section-desc" data-i18n="projects_desc">Beberapa proyek dan pencapaian dalam karir quality assurance saya.</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card reveal">
+                    <div class="project-thumb"><i class="fas fa-snowflake"></i></div>
+                    <div class="project-body">
+                        <span class="project-tag">Quality Inspection</span>
+                        <h3>Sistem Inspeksi Refrigerator</h3>
+                        <p>
+                            Mengembangkan prosedur inspeksi kualitas untuk refrigerator di PT Hartono Istana Teknologi,
+                            mencakup pengujian performa pendinginan, komponen kelistrikan, dan dokumentasi defect.
+                        </p>
+                        <div class="project-tech">
+                            <span>Final Inspection</span>
+                            <span>Defect Analysis</span>
+                            <span>SOP</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card reveal">
+                    <div class="project-thumb"><i class="fas fa-tire"></i></div>
+                    <div class="project-body">
+                        <span class="project-tag">Product Classification</span>
+                        <h3>Sistem Klasifikasi Produk Ban</h3>
+                        <p>
+                            Merancang dan menjalankan sistem klasifikasi produk ban berdasarkan standar kualitas
+                            di PT Maxxis International Indonesia, meningkatkan akurasi sortir hingga 98%.
+                        </p>
+                        <div class="project-tech">
+                            <span>K3</span>
+                            <span>Sortir</span>
+                            <span>Klasifikasi</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card reveal">
+                    <div class="project-thumb"><i class="fas fa-industry"></i></div>
+                    <div class="project-body">
+                        <span class="project-tag">Quality Control</span>
+                        <h3>Final Inspection System</h3>
+                        <p>
+                            Mengelola proses final inspection untuk produk karet di PT Suryaraya Rubberindo Industries,
+                            berkoordinasi dengan tim produksi dan engineering untuk perbaikan kualitas berkelanjutan.
+                        </p>
+                        <div class="project-tech">
+                            <span>QC</span>
+                            <span>Coordinator</span>
+                            <span>Reporting</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== CERTIFICATIONS ====== -->
+    <section id="certifications">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label" data-i18n="cert_label">Sertifikasi</span>
+                <h2 class="section-title" data-i18n="cert_title">Sertifikasi & Pelatihan</h2>
+                <p class="section-desc" data-i18n="cert_desc">Sertifikasi dan pelatihan yang mendukung kompetensi profesional saya.</p>
+            </div>
+            <div class="cert-grid">
+                <div class="cert-card reveal">
+                    <div class="cert-icon"><i class="fas fa-certificate"></i></div>
+                    <h3>Quality Assurance Fundamentals</h3>
+                    <div class="cert-issuer">Coursera / Google</div>
+                    <div class="cert-date">2024</div>
+                </div>
+                <div class="cert-card reveal">
+                    <div class="cert-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>K3 (Keselamatan & Kesehatan Kerja)</h3>
+                    <div class="cert-issuer">BNSP Indonesia</div>
+                    <div class="cert-date">2023</div>
+                </div>
+                <div class="cert-card reveal">
+                    <div class="cert-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Six Sigma Yellow Belt</h3>
+                    <div class="cert-issuer">IASSC</div>
+                    <div class="cert-date">2024</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== TESTIMONIALS ====== -->
+    <section id="testimonials">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label" data-i18n="testi_label">Testimoni</span>
+                <h2 class="section-title" data-i18n="testi_title">Apa Kata Mereka</h2>
+                <p class="section-desc" data-i18n="testi_desc">Testimoni dari rekan kerja dan atasan tentang kolaborasi bersama saya.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <blockquote>
+                        "Misbachul memiliki ketelitian luar biasa dalam inspeksi kualitas. Dedikasinya terhadap
+                        standar kualitas sangat membantu tim produksi kami."
+                    </blockquote>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">AS</div>
+                        <div class="testimonial-author-info">
+                            <strong>Ahmad Syarif</strong>
+                            <span>Supervisor Produksi, PT HIT</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <blockquote>
+                        "Bekerja dengan Misbachul sangat menyenangkan. Ia selalu detail dalam dokumentasi
+                        defect dan cepat dalam mengidentifikasi masalah kualitas."
+                    </blockquote>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">DW</div>
+                        <div class="testimonial-author-info">
+                            <strong>Dwi Wahyuni</strong>
+                            <span>QA Team Lead, PT Maxxis</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== CV DOWNLOAD ====== -->
+    <section id="cv-download">
+        <div class="container">
+            <div class="cv-section reveal">
+                <h3><i class="fas fa-file-pdf" style="color:var(--primary-light);margin-right:0.5rem;"></i> <span data-i18n="cv_title">Download CV Saya</span></h3>
+                <p data-i18n="cv_desc">
+                    Dapatkan salinan CV lengkap saya dalam format PDF untuk informasi lebih detail
+                    tentang pengalaman, keahlian, dan kualifikasi saya.
+                </p>
+                <a href="#" class="btn btn-primary" onclick="downloadCV(event)">
+                    <i class="fas fa-download"></i> <span data-i18n="cv_btn">Download CV (PDF)</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- ====== CONTACT ====== -->
     <section id="contact">
         <div class="container">
             <div class="section-header reveal">
-                <span class="section-label">Kontak</span>
-                <h2 class="section-title">Hubungi Saya</h2>
-                <p class="section-desc">Tertarik untuk bekerja sama? Silakan hubungi saya melalui form di bawah atau kontak langsung.</p>
+                <span class="section-label" data-i18n="contact_label">Kontak</span>
+                <h2 class="section-title" data-i18n="contact_title">Hubungi Saya</h2>
+                <p class="section-desc" data-i18n="contact_desc">Tertarik untuk bekerja sama? Silakan hubungi saya melalui form di bawah atau kontak langsung.</p>
             </div>
             <div class="contact-grid">
                 <div class="contact-info reveal">
-                    <h3>Mari <span style="color:var(--primary-light)">Berkolaborasi</span></h3>
-                    <p>
+                    <h3><span data-i18n="contact_heading">Mari</span> <span style="color:var(--primary-light)" data-i18n="contact_heading_highlight">Berkolaborasi</span></h3>
+                    <p data-i18n="contact_info_text">
                         Saya selalu terbuka untuk peluang baru, kolaborasi, atau diskusi
                         seputar quality assurance dan manufacturing. Jangan ragu untuk
                         menghubungi saya!
@@ -1178,53 +1698,65 @@
                     <div class="contact-item">
                         <div class="contact-item-icon"><i class="fas fa-envelope"></i></div>
                         <div class="contact-item-text">
-                            <label>Email</label>
+                            <label data-i18n="contact_email_label">Email</label>
                             <span>misbachulmunir429@gmail.com</span>
                         </div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-item-icon"><i class="fas fa-phone"></i></div>
                         <div class="contact-item-text">
-                            <label>Telepon</label>
+                            <label data-i18n="contact_phone_label">Telepon</label>
                             <span>+62 838-2953-0957</span>
                         </div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-item-icon"><i class="fas fa-map-marker-alt"></i></div>
                         <div class="contact-item-text">
-                            <label>Lokasi</label>
+                            <label data-i18n="contact_location_label">Lokasi</label>
                             <span>Grobogan, Jawa Tengah</span>
                         </div>
                     </div>
                 </div>
-                <form class="contact-form reveal" id="contactForm">
+                <form class="contact-form reveal" id="contactForm" action="https://formspree.io/f/{your-form-id}" method="POST">
+                    <!-- Hidden field untuk Formspree reply-to -->
+                    <input type="hidden" name="_replyto" id="replytoField" value="" />
+                    <input type="hidden" name="_subject" id="subjectField" value="Pesan dari Portfolio Website" />
                     <div class="form-group">
-                        <label for="name">Nama Lengkap</label>
-                        <input type="text" id="name" placeholder="Masukkan nama Anda" required />
+                        <label for="name" data-i18n="form_name_label">Nama Lengkap</label>
+                        <input type="text" name="name" id="name" data-i18n="form_name_placeholder" placeholder="" required />
                     </div>
                     <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" placeholder="Masukkan email Anda" required />
+                        <label for="email" data-i18n="form_email_label">Email</label>
+                        <input type="email" name="email" id="email" data-i18n="form_email_placeholder" placeholder="" required />
                     </div>
                     <div class="form-group">
-                        <label for="message">Pesan</label>
-                        <textarea id="message" placeholder="Tulis pesan Anda di sini..." required></textarea>
+                        <label for="subject" data-i18n="form_subject_label">Subjek</label>
+                        <input type="text" name="subject" id="subject" data-i18n="form_subject_placeholder" placeholder="" />
+                    </div>
+                    <div class="form-group">
+                        <label for="message" data-i18n="form_message_label">Pesan</label>
+                        <textarea name="message" id="message" data-i18n="form_message_placeholder" placeholder="" required></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">
-                        <i class="fas fa-paper-plane"></i> Kirim Pesan
+                        <i class="fas fa-paper-plane"></i> <span data-i18n="form_submit">Kirim Pesan</span>
                     </button>
                 </form>
             </div>
         </div>
     </section>
 
+    <!-- ====== BACK TO TOP ====== -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <!-- ====== FOOTER ====== -->
     <footer>
         <div class="social-links">
             <a href="mailto:misbachulmunir429@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
             <a href="tel:+6283829530957" title="Telepon"><i class="fas fa-phone"></i></a>
-            <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/misbachul-munir" title="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/kosakata688-blip" title="GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
         </div>
         <p>&copy; 2026 Misbachul Munir. All rights reserved.</p>
     </footer>
@@ -1355,27 +1887,229 @@
 
         skillBars.forEach(bar => skillObserver.observe(bar));
 
-        // ==================== CONTACT FORM ====================
+        // ==================== CONTACT FORM (Formspree) ====================
         const contactForm = document.getElementById('contactForm');
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const btn = contactForm.querySelector('button[type="submit"]');
-            const original = btn.innerHTML;
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Mengirim...';
-            btn.disabled = true;
-
-            setTimeout(() => {
-                btn.innerHTML = '<i class="fas fa-check-circle"></i> Pesan Terkirim!';
-                btn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+        const emailInput = document.getElementById('email');
+        const replytoField = document.getElementById('replytoField');
+        const subjectField = document.getElementById('subjectField');
+        
+        // Sync email field with _replyto hidden field for Formspree
+        if (emailInput && replytoField) {
+            emailInput.addEventListener('input', () => {
+                replytoField.value = emailInput.value;
+            });
+        }
+        
+        // Check if Formspree ID is configured
+        if (contactForm.action.includes('{your-form-id}')) {
+            // If not configured, use client-side simulation
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const btn = contactForm.querySelector('button[type="submit"]');
+                const original = btn.innerHTML;
+                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Mengirim...';
+                btn.disabled = true;
 
                 setTimeout(() => {
-                    btn.innerHTML = original;
-                    btn.style.background = '';
-                    btn.disabled = false;
-                    contactForm.reset();
-                }, 3000);
-            }, 1500);
+                    btn.innerHTML = '<i class="fas fa-check-circle"></i> Pesan Terkirim!';
+                    btn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+
+                    setTimeout(() => {
+                        btn.innerHTML = original;
+                        btn.style.background = '';
+                        btn.disabled = false;
+                        contactForm.reset();
+                    }, 3000);
+                }, 1500);
+            });
+        }
+        // If Formspree is configured, it will submit natively — no extra JS needed
+
+        // ==================== BACK TO TOP ====================
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
         });
+        
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // ==================== DOWNLOAD CV ====================
+        function downloadCV(e) {
+            e.preventDefault();
+            // Open CV page in a new tab - user can print/save as PDF
+            window.open('cv.html', '_blank');
+        }
+
+        // ==================== ACTIVE NAV LINK ====================
+        const sections = document.querySelectorAll('section[id]');
+        const navAnchors = document.querySelectorAll('.nav-links a');
+        
+        const navObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    navAnchors.forEach(anchor => {
+                        anchor.style.color = '';
+                        if (anchor.getAttribute('href') === '#' + entry.target.id) {
+                            anchor.style.color = 'var(--primary-light)';
+                        }
+                    });
+                }
+            });
+        }, { threshold: 0.3 });
+        
+        sections.forEach(section => navObserver.observe(section));
+
+        // ==================== INTERNATIONALIZATION (ID/EN) ====================
+        const translations = {
+            nav_home:     { id: 'Beranda',     en: 'Home' },
+            nav_about:    { id: 'Tentang',     en: 'About' },
+            nav_skills:   { id: 'Keahlian',    en: 'Skills' },
+            nav_experience: { id: 'Pengalaman', en: 'Experience' },
+            nav_education: { id: 'Pendidikan', en: 'Education' },
+            nav_projects: { id: 'Proyek',      en: 'Projects' },
+            nav_certifications: { id: 'Sertifikasi', en: 'Certifications' },
+            nav_testimonials: { id: 'Testimoni', en: 'Testimonials' },
+            nav_contact:  { id: 'Kontak',      en: 'Contact' },
+            hero_badge:   { id: 'Tersedia untuk bekerja', en: 'Available for work' },
+            hero_greeting: { id: 'Halo, saya', en: "Hi, I'm" },
+            hero_subtitle: { id: 'Quality Assurance Professional', en: 'Quality Assurance Professional' },
+            hero_desc:    { id: 'Berpengalaman dalam quality inspection, defect analysis, dan quality control di industri manufaktur. Berkomitmen untuk menjaga standar kualitas tertinggi melalui ketelitian, dokumentasi, dan koordinasi lintas tim.', en: 'Experienced in quality inspection, defect analysis, and quality control in the manufacturing industry. Committed to maintaining the highest quality standards through thoroughness, documentation, and cross-team coordination.' },
+            hero_cta_contact: { id: 'Hubungi Saya', en: 'Contact Me' },
+            hero_cta_experience: { id: 'Lihat Pengalaman', en: 'View Experience' },
+            hero_cta_cv:  { id: 'Download CV', en: 'Download CV' },
+            about_label:  { id: 'Tentang Saya', en: 'About Me' },
+            about_title:  { id: 'Professional Overview', en: 'Professional Overview' },
+            about_desc:   { id: 'Quality Assurance professional dengan pengalaman di berbagai sektor manufaktur.', en: 'Quality Assurance professional with experience in various manufacturing sectors.' },
+            stat_years:   { id: 'Tahun Pengalaman', en: 'Years Experience' },
+            stat_companies: { id: 'Perusahaan', en: 'Companies' },
+            stat_quality: { id: 'Komitmen Kualitas', en: 'Quality Commitment' },
+            about_heading: { id: 'Dedikasi pada', en: 'Dedication to' },
+            about_heading_highlight: { id: 'Kualitas', en: 'Quality' },
+            about_p1:     { id: 'Saya adalah seorang profesional Quality Assurance yang memiliki pengalaman luas dalam inspeksi kualitas produk di industri manufaktur. Berawal dari posisi Final Inspection hingga QA Inspector, saya telah mengasah kemampuan dalam mengidentifikasi cacat, menganalisis penyebab, dan mendokumentasikan temuan secara detail.', en: 'I am a Quality Assurance professional with extensive experience in product quality inspection in the manufacturing industry. Starting from Final Inspection to QA Inspector, I have honed my skills in identifying defects, analyzing root causes, and documenting findings in detail.' },
+            about_p2:     { id: 'Dengan latar belakang Teknik Komputer dan Jaringan serta sedang menempuh pendidikan S1 Sistem Informasi, saya menggabungkan ketelitian teknis dengan pemahaman sistem untuk memastikan setiap produk memenuhi standar yang ditetapkan.', en: 'With a background in Computer and Network Engineering and currently pursuing a Bachelors degree in Information Systems, I combine technical precision with systems understanding to ensure every product meets established standards.' },
+            skills_label: { id: 'Keahlian', en: 'Skills' },
+            skills_title: { id: 'Core Competencies', en: 'Core Competencies' },
+            skills_desc:  { id: 'Keahlian utama yang saya miliki dalam bidang quality assurance dan manufacturing.', en: 'Key skills I possess in quality assurance and manufacturing.' },
+            exp_label:    { id: 'Pengalaman', en: 'Experience' },
+            exp_title:    { id: 'Work Experience', en: 'Work Experience' },
+            exp_desc:     { id: 'Perjalanan karir saya di industri manufaktur.', en: 'My career journey in the manufacturing industry.' },
+            edu_label:    { id: 'Pendidikan', en: 'Education' },
+            edu_title:    { id: 'Educational Background', en: 'Educational Background' },
+            edu_desc:     { id: 'Riwayat pendidikan formal yang mendukung kompetensi saya.', en: 'Formal education history supporting my competencies.' },
+            projects_label: { id: 'Portofolio', en: 'Portfolio' },
+            projects_title: { id: 'Proyek & Pencapaian', en: 'Projects & Achievements' },
+            projects_desc: { id: 'Beberapa proyek dan pencapaian dalam karir quality assurance saya.', en: 'Some projects and achievements in my quality assurance career.' },
+            cert_label:   { id: 'Sertifikasi', en: 'Certifications' },
+            cert_title:   { id: 'Sertifikasi & Pelatihan', en: 'Certifications & Training' },
+            cert_desc:    { id: 'Sertifikasi dan pelatihan yang mendukung kompetensi profesional saya.', en: 'Certifications and training supporting my professional competence.' },
+            testi_label:  { id: 'Testimoni', en: 'Testimonials' },
+            testi_title:  { id: 'Apa Kata Mereka', en: 'What They Say' },
+            testi_desc:   { id: 'Testimoni dari rekan kerja dan atasan tentang kolaborasi bersama saya.', en: 'Testimonials from colleagues and supervisors about working with me.' },
+            contact_label: { id: 'Kontak', en: 'Contact' },
+            contact_title: { id: 'Hubungi Saya', en: 'Get In Touch' },
+            contact_desc: { id: 'Tertarik untuk bekerja sama? Silakan hubungi saya melalui form di bawah atau kontak langsung.', en: 'Interested in working together? Please contact me via the form below or direct contact.' },
+            contact_heading: { id: 'Mari', en: "Let's" },
+            contact_heading_highlight: { id: 'Berkolaborasi', en: 'Collaborate' },
+            contact_info_text: { id: 'Saya selalu terbuka untuk peluang baru, kolaborasi, atau diskusi seputar quality assurance dan manufacturing. Jangan ragu untuk menghubungi saya!', en: "I'm always open to new opportunities, collaborations, or discussions about quality assurance and manufacturing. Don't hesitate to reach out!" },
+            contact_email_label: { id: 'Email', en: 'Email' },
+            contact_phone_label: { id: 'Telepon', en: 'Phone' },
+            contact_location_label: { id: 'Lokasi', en: 'Location' },
+            form_name_label: { id: 'Nama Lengkap', en: 'Full Name' },
+            form_email_label: { id: 'Email', en: 'Email' },
+            form_subject_label: { id: 'Subjek', en: 'Subject' },
+            form_message_label: { id: 'Pesan', en: 'Message' },
+            form_submit:  { id: 'Kirim Pesan', en: 'Send Message' },
+            cv_title:     { id: 'Download CV Saya', en: 'Download My CV' },
+            cv_desc:      { id: 'Dapatkan salinan CV lengkap saya dalam format PDF untuk informasi lebih detail tentang pengalaman, keahlian, dan kualifikasi saya.', en: 'Get a copy of my complete CV in PDF format for more detailed information about my experience, skills, and qualifications.' },
+            cv_btn:       { id: 'Download CV (PDF)', en: 'Download CV (PDF)' }
+        };
+
+        const placeholders = {
+            form_name_label: { id: 'Masukkan nama Anda', en: 'Enter your name' },
+            form_email_label: { id: 'Masukkan email Anda', en: 'Enter your email' },
+            form_subject_label: { id: 'Subjek pesan', en: 'Message subject' },
+            form_name_placeholder: { id: 'Masukkan nama Anda', en: 'Enter your name' },
+            form_email_placeholder: { id: 'Masukkan email Anda', en: 'Enter your email' },
+            form_subject_placeholder: { id: 'Subjek pesan', en: 'Message subject' },
+            form_message_placeholder: { id: 'Tulis pesan Anda di sini...', en: 'Write your message here...' }
+        };
+
+        let currentLang = localStorage.getItem('portfolio_lang') || 'id';
+
+        function applyLanguage(lang) {
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                    // For form inputs, set placeholder directly
+                    if (placeholders[key] && placeholders[key][lang]) {
+                        el.placeholder = placeholders[key][lang];
+                    }
+                } else if (translations[key] && translations[key][lang]) {
+                    el.textContent = translations[key][lang];
+                }
+            });
+
+            // Update lang attribute
+            document.documentElement.lang = lang === 'id' ? 'id' : 'en';
+
+            // Update toggle button indicator
+            const indicator = document.getElementById('langIndicator');
+            if (indicator) {
+                indicator.textContent = lang.toUpperCase();
+            }
+
+            // Update meta description
+            const metaDesc = document.querySelector('meta[name="description"]');
+            if (metaDesc) {
+                metaDesc.content = lang === 'id'
+                    ? 'Portfolio Misbachul Munir — Quality Assurance Professional'
+                    : 'Misbachul Munir Portfolio — Quality Assurance Professional';
+            }
+
+            // Update title
+            document.title = lang === 'id'
+                ? 'Misbachul Munir — QA Professional'
+                : 'Misbachul Munir — QA Professional';
+
+            // Update form subject
+            if (subjectField) {
+                subjectField.value = lang === 'id'
+                    ? 'Pesan dari Portfolio Website'
+                    : 'Message from Portfolio Website';
+            }
+
+            // Update form submit button text for simulation mode
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            if (submitBtn) {
+                const submitSpan = submitBtn.querySelector('[data-i18n="form_submit"]');
+                if (submitSpan) {
+                    submitSpan.textContent = translations.form_submit[lang];
+                }
+            }
+
+            localStorage.setItem('portfolio_lang', lang);
+            currentLang = lang;
+        }
+
+        // Initialize language
+        applyLanguage(currentLang);
+
+        // Toggle language on button click
+        const langToggle = document.getElementById('langToggle');
+        if (langToggle) {
+            langToggle.addEventListener('click', () => {
+                const newLang = currentLang === 'id' ? 'en' : 'id';
+                applyLanguage(newLang);
+            });
+        }
     </script>
 
 </body>
